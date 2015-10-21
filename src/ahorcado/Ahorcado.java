@@ -5,6 +5,8 @@
  */
 package ahorcado;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Admin
@@ -16,12 +18,16 @@ public class Ahorcado {
      */
     public static void main(String[] args) {
     
-        int counter= 0;
-        while (counter < 11) {
-			counter = counter + 1;
-			System.out.println(counter);
+        int intentos= 0;
+        char letra= JOptionPane.showInputDialog("Digite una letra").charAt(0);
+         
+        
+        Palabra p1 = new Palabra(intentos);
+        while (intentos < 11) {
+			intentos = intentos + 1;	
 		}
         
+        System.out.println(p1.toString());
     }
     
 }
