@@ -15,8 +15,12 @@ public class Ahorcado {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        // TODO code application logic here
+    
+        int counter= 0;
+        while (counter < 11) {
+			counter = counter + 1;
+			System.out.println(counter);
+		}
         
     }
     
