@@ -5,7 +5,7 @@
  */
 package ahorcado;
 
-import javax.swing.JOptionPane;
+
 
 /**
  *
