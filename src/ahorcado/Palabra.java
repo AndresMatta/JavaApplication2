@@ -15,12 +15,16 @@ public class Palabra {
     
     public String[] categoria;
     String[] animales={"AGUILA", "ABEJA", "ALACRAN", "ALCATRAZ", "ALCE", "ANTILOPE", "AVESTRUZ", "BALLENA", "BISONTE", "BOROCHI", "BUFALO", "CACATUA", "CALAMAR", "CAMELLO", "DROMEDARIO", "DELFIN", "ERIZO", "ESCUERZO", "ELEFANTE", "FLAMENCO", "FOCA", "GACELA", "GAVIOTA", "GAVILAN", "HIENA", "HUEMUL", "IGUANA", "JABIRU", "JAGUARUNDI", "JIRAFA", "KOALA", "KRILL", "LEMUR", "LUBINA", "MAPACHE", "MOFETA", "NUTRIA", "ORNITORRINCO", "OSO", "PANTERA", "PAPAGAYO", "PELICANO", "PIHUEL", "QUOKKA", "QUAGGA", "RINOCERONTE", "SALAMANDRA", "SURICATA", "TOPO", "TORTUGA", "TUCAN", "VACA", "VIBORA", "VINCHUCA", "WALABI", "XOLOESCUINTLE", "YAK", "ZARIGUEYA"};
-    public String[] plantas;
+    public String[] plantas={"ALMENDRO", "AMAPOLA", "AGAVE", "BALSAMO", "BUDELIA", "CARDO", "CARDOSANTO", "DRAGONARIA", "EQUINOCACTUS", "GANDUL", "GRANADO", "HINOJO", "JAZMIN", "LAVANDA", "LINO", "MANZANILLA", "MARGARITA", "OXALIS", "PAPIRO", "PETUNIA", "ROMERO", "TOMILLO", "TULIPERO", "VIBORERA", "ALAMO", "ARCE", "CALANIT"};
     public char[] letra= new char[11];
     private int intentos;
-    String elegido;
+    String aleatoriaAnimales;
+    String aleatoriaPlantas;
+    String aleatoria;
     
     public Palabra(int intentos) {
+        this.aleatoriaPlantas = plantas[this.PosicionPlantas()];
+        this.aleatoriaAnimales = animales[this.PosicionAnimales()];
         this.categoria = new String[]{"ANIMALES", "PLANTAS"};
         this.plantas = new String[]{"ALMENDRO", "AMAPOLA", "AGAVE", "BALSAMO", "BUDELIA", "CARDO", "CARDOSANTO", "DRAGONARIA", "EQUINOCACTUS", "GANDUL", "GRANADO", "HINOJO", "JAZMIN", "LAVANDA", "LINO", "MANZANILLA", "MARGARITA", "OXALIS", "PAPIRO", "PETUNIA", "ROMERO", "TOMILLO", "TULIPERO", "VIBORERA", "ALAMO", "ARCE", "CALANIT"};
         this.animales = new String[]{"AGUILA", "ABEJA", "ALACRAN", "ALCATRAZ", "ALCE", "ANTILOPE", "AVESTRUZ", "BALLENA", "BISONTE", "BOROCHI", "BUFALO", "CACATUA", "CALAMAR", "CAMELLO", "DROMEDARIO", "DELFIN", "ERIZO", "ESCUERZO", "ELEFANTE", "FLAMENCO", "FOCA", "GACELA", "GAVIOTA", "GAVILAN", "HIENA", "HUEMUL", "IGUANA", "JABIRU", "JAGUARUNDI", "JIRAFA", "KOALA", "KRILL", "LEMUR", "LUBINA", "MAPACHE", "MOFETA", "NUTRIA", "ORNITORRINCO", "OSO", "PANTERA", "PAPAGAYO", "PELICANO", "PIHUEL", "QUOKKA", "QUAGGA", "RINOCERONTE", "SALAMANDRA", "SURICATA", "TOPO", "TORTUGA", "TUCAN", "VACA", "VIBORA", "VINCHUCA", "WALABI", "XOLOESCUINTLE", "YAK", "ZARIGUEYA"};
@@ -36,17 +40,24 @@ public class Palabra {
     public void setIntentos(int intentos) {
         this.intentos = intentos;
     }
+    private int PosicionAnimales(){
+        
+        int posicion = (int)(Math.random() *animales.length);
+        return posicion;
+        
+    }
     
-    public String elegirAnimales(){
-       int aleatorio=(int)((Math.random()*animales.length)*10)/10;
-       elegido=animales[aleatorio];
-       return elegido;
-       }
-
+    private int PosicionPlantas(){
+        
+        int posicion = (int)(Math.random() *plantas.length);
+        return posicion;
+    }
+    
     @Override
     public String toString() {
-        return "Palabra{" + "categoria=" + categoria + ", animales=" + animales + ", plantas=" + plantas + ", letra=" + letra + ", intentos=" + intentos + ", elegido=" + elegido + '}';
+        return "Palabra{" + "categoria=" + categoria + ", animales=" + animales + ", plantas=" + plantas + ", letra=" + letra + ", intentos=" + intentos + ", elegido=" + aleatoriaAnimales + '}';
     }
     
 }
+
 
