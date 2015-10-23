@@ -19,15 +19,21 @@ public class Ahorcado {
     public static void main(String[] args) {
     
         int intentos= 0;
+        String categoria= JOptionPane.showInputDialog("Elija la categoria: 1.Animales 2.Plantas");
         char letra= JOptionPane.showInputDialog("Digite una letra").charAt(0);
-         
+        String aleatoria="";
         
-        Palabra p1 = new Palabra(intentos);
+        
+        Palabra p1 = new Palabra(intentos, categoria, aleatoria);
+       
         while (intentos < 11) {
 			intentos = intentos + 1;	
 		}
         
+        
+        
         System.out.println(p1.toString());
+        
     }
     
 }
