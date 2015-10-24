@@ -20,8 +20,9 @@ public class Palabra {
     public char[] letra;
     private int intentos;
     String aleatoria;
-    
-    public Palabra(int intentos, String categoria, String aleatoria) {
+    public int aciertos;
+    public Palabra(int intentos, String categoria, String aleatoria, int aciertos) {
+        this.aciertos = aciertos;
         this.letra = new char[11];
         this.categoria = categoria;
         this.aleatoria= this.PalabraSecreta(aleatoria);
@@ -53,6 +54,14 @@ public class Palabra {
 
     public void setAleatoria(String aleatoria) {
         this.aleatoria = aleatoria;
+    }
+
+    public int getAciertos() {
+        return aciertos;
+    }
+
+    public void setAciertos(int aciertos) {
+        this.aciertos = aciertos;
     }
     
     

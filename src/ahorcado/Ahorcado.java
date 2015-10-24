@@ -21,47 +21,38 @@ public class Ahorcado {
     public static void main(String[] args) {
     
         Scanner sc = new Scanner(System.in);
-        char letra = 0;
+        char letra;
         int intentos= 0;
         String categoria= JOptionPane.showInputDialog("Elija la categoria: a.Animales b.Plantas");
         String aleatoria="";
+        int aciertos=0;
         
-        
-        Palabra p1 = new Palabra(intentos, categoria, aleatoria);
+        Palabra p1 = new Palabra(intentos, categoria, aleatoria, aciertos);
         JOptionPane.showMessageDialog(null, "el número de caracteres de la palabra es: " + p1.aleatoria.length());
         JOptionPane.showMessageDialog(null, "palabra=" + p1.aleatoria);
         
-        switch(intentos){
-            case 0:
+        while(intentos<11 || p1.aleatoria.length()== p1.aciertos){
                 System.out.print("Ingrese una letra");
                 letra =sc.next().charAt(0);
-                if (11<=intentos){
-        
-                    JOptionPane.showMessageDialog(null, "Perdiste");
-                    System.exit(intentos);
-        }
+                
                 if(p1.aleatoria.indexOf(letra)==-1){
                     JOptionPane.showMessageDialog(null, "Incorrecto");
                     intentos=intentos+1;
-                    break;
+                    
                 }else{
                     JOptionPane.showMessageDialog(null, "¡Correcto!");
-                    break;
+                    aciertos=aciertos + 1;
                 }
-                   
-            case 1: System.out.print("intrese una letra");
-                    break;
-            
-        
-        
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     }
+        if (11<=intentos){
+                    JOptionPane.showMessageDialog(null, "Perdiste");
+                    System.exit(intentos);
+        }else if(11<=aciertos){
+            JOptionPane.showMessageDialog(null, "¡Felicidades ganaste!");
+        }
+        
+        
+        
         }
         }
     
