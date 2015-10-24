@@ -21,8 +21,7 @@ public class Ahorcado {
     public static void main(String[] args) {
     
         Scanner sc = new Scanner(System.in);
-        char letra;
-        
+        char letra = 0;
         int intentos= 0;
         String categoria= JOptionPane.showInputDialog("Elija la categoria: a.Animales b.Plantas");
         String aleatoria="";
@@ -32,10 +31,38 @@ public class Ahorcado {
         JOptionPane.showMessageDialog(null, "el número de caracteres de la palabra es: " + p1.aleatoria.length());
         JOptionPane.showMessageDialog(null, "palabra=" + p1.aleatoria);
         
-        System.out.print("Ingrese una letra");
-        letra= sc.next().charAt(0);
-        JOptionPane.showMessageDialog(null, "letra ingresada= " + letra);
-    }
+        switch(intentos){
+            case 0:
+                System.out.print("Ingrese una letra");
+                letra =sc.next().charAt(0);
+                if (11<=intentos){
+        
+                    JOptionPane.showMessageDialog(null, "Perdiste");
+                    System.exit(intentos);
+        }
+                if(p1.aleatoria.indexOf(letra)==-1){
+                    JOptionPane.showMessageDialog(null, "Incorrecto");
+                    intentos=intentos+1;
+                    break;
+                }else{
+                    JOptionPane.showMessageDialog(null, "¡Correcto!");
+                    break;
+                }
+                   
+            case 1: System.out.print("intrese una letra");
+                    break;
+            
+        
+        
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    }
+        }
         }
     
      

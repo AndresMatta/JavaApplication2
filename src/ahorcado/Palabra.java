@@ -5,8 +5,7 @@
  */
 package ahorcado;
 
-import javax.swing.JOptionPane;
-import java.util.Scanner;
+
 
 
 /**
@@ -79,6 +78,7 @@ public class Palabra {
         return aleatoria;
     }   
      
+    
     @Override
     public String toString() {
         return "Palabra{" + "categoria=" + categoria + ", animales=" + animales + ", plantas=" + plantas + ", letra=" + letra + ", intentos=" + intentos + ", elegido=" + aleatoria + '}';
