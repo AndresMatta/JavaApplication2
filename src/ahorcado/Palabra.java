@@ -30,7 +30,7 @@ public class Palabra {
      * @param letra
      */
     public Palabra(int intentos, String categoria, String aleatoria, char letra) {
-        this.plantas = new String[]{"ALMENDRO", "AMAPOLA", "AGAVE", "BALSAMO", "BUDELIA", "CARDO", "CARDOSANTO", "EQUINOCACTUS", "GANDUL", "GRANADO", "HINOJO", "JAZMIN", "LINO", "OXALIS", "PAPIRO", "PETUNIA", "ROMERO", "TOMILLO", "TULIPERO", "VIBORERA", "ALAMO", "ARCE", "CALANIT"};
+        this.plantas = new String[]{"ALMENDRO", "AGAVE", "BALSAMO", "BUDELIA", "CARDO", "CARDOSANTO", "EQUINOCACTUS", "GANDUL", "GRANADO", "HINOJO", "JAZMIN", "LINO", "OXALIS", "PAPIRO", "PETUNIA", "ROMERO", "TOMILLO", "TULIPERO", "VIBORERA", "ALAMO", "ARCE", "CALANIT"};
         this.animales = new String[]{"AGUILA", "ABEJA", "ALCE", "ANTILOPE", "AVESTRUZ", "BALLENA", "BISONTE", "BOROCHI", "BUFALO", "CAMELLO", "DROMEDARIO", "DELFIN", "ERIZO", "ESCUERZO", "FLAMENCO", "FOCA", "GACELA", "GAVIOTA", "GAVILAN", "HIENA", "HUEMUL", "JABIRU", "JAGUARUNDI", "JIRAFA", "KOALA", "KRILL", "LEMUR", "LUBINA", "MAPACHE", "MOFETA", "NUTRIA", "OSO", "PANTERA", "PELICANO", "PIHUEL", "QUOKKA", "QUAGGA", "RINOCERONTE", "SURICATA", "TOPO", "TORTUGA", "TUCAN", "VACA", "VIBORA", "VINCHUCA", "WALABI", "XOLOESCUINTLE", "YAK", "ZARIGUEYA"};
         this.letra = new char[0];
         this.categoria = categoria;

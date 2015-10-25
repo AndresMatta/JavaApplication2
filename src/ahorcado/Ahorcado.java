@@ -56,10 +56,10 @@ public class Ahorcado {
           i=i+1;}
         //Revela la cantidad de digitos de la palabra.
         JOptionPane.showMessageDialog(null, "el número de caracteres de la palabra es: " + p1.aleatoria.length());
-        JOptionPane.showMessageDialog(null, p1.aleatoria);
         System.out.println("¡Adivina la palabra! \r" +  secreta);
         //Permite modificar una cadena de caracteres.
         StringBuffer secretaBd = new StringBuffer(secreta);
+        StringBuffer errores = new StringBuffer("***********");
         //Ciclo del juego, con el contador de intentos.
                 while(p1.aleatoria.equals(secretaBd.toString())==false && intentos<11){
                 System.out.print("Ingrese una letra");
@@ -67,9 +67,15 @@ public class Ahorcado {
                    //Permite ingresar minúsculas.
                     if(Character.isLowerCase(letra))
                        letra=Character.toUpperCase(letra);
+                    //Evalua si la palabra es repetida
+                    if(secretaBd.toString().indexOf(letra)>=0 || errores.toString().indexOf(letra)>=0){
+                        System.out.println("Sus errores han sido: " + errores);
+                        JOptionPane.showMessageDialog(null, "Error, letra repetida. Vuelva a ingresar");
+                    }else{
                    //Busca el caracter en la palabra, si no esta devuelvo un int -1.
                     if(p1.aleatoria.indexOf(letra)==-1){
                     JOptionPane.showMessageDialog(null, "Incorrecto");
+                    errores.setCharAt(intentos, letra);
                     intentos=intentos+1;
                    }//Si lo encuentra, retorna un valor entero >=0.
                     else if (p1.aleatoria.indexOf(letra)>=0){
@@ -83,13 +89,24 @@ public class Ahorcado {
                     JOptionPane.showMessageDialog(null, secretaBd);
                     }
                     }
-        //Informa al usuario que perdió si el contador llego 11, revela la palabra oculta.
+                    }
+        //Informa que el contador llego a 11, se restablecen los valores.
         if (intentos>=11){
                     System.out.print(p1.aleatoria);
                     JOptionPane.showMessageDialog(null, "Perdiste, la palabra era: " + p1.aleatoria);
-        //Mensaje de felicitacion.            
+                    intentos=0;
+                    secreta="";
+                    aleatoria="";
+                    i=0;
+                    categoria="";
+        //Mensaje de felicitacion, se restablecen los valores.            
         }else if(p1.aleatoria.equals(secretaBd.toString())){
-            JOptionPane.showMessageDialog(null, "¡Felicidades ganaste!");  
+            JOptionPane.showMessageDialog(null, "¡Felicidades ganaste!");
+            intentos=0;
+            secreta="";
+            aleatoria="";
+            i=0;
+            categoria="";
         }
         //Opcion de reintentar.
         reintentar=JOptionPane.showInputDialog("¿Desea volver a jugar? A.Sí B.No");
