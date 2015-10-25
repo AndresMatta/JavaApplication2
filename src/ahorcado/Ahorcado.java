@@ -25,144 +25,62 @@ public class Ahorcado {
         int intentos= 0;
         String categoria= JOptionPane.showInputDialog("Elija la categoria: A.Animales B.Plantas");
         String aleatoria="";
-        int aciertos=0;
-        
+      
         String secreta="";
         int i = 0;
+        int posicion1;
+        int posicion2;
+        String reintentar;
         
-        Palabra p1 = new Palabra(intentos, categoria, aleatoria, aciertos, letra);
-        JOptionPane.showMessageDialog(null, "el número de caracteres de la palabra es: " + p1.aleatoria.length());
-        
-        
+        Palabra p1 = new Palabra(intentos, categoria, aleatoria, letra);
         
         while(p1.aleatoria.length()>i){
-          secreta= secreta + "*";      
-          i=i+1;
-         }
+          secreta= secreta + "*";  
+          i=i+1;}
         
-        System.out.println("¡Adivina la palabra! \r" + secreta);
+        JOptionPane.showMessageDialog(null, "el número de caracteres de la palabra es: " + p1.aleatoria.length());
+        JOptionPane.showMessageDialog(null, p1.aleatoria);
+        System.out.println("¡Adivina la palabra! \r" +  secreta);
         
-       
-        while(aleatoria.length()==aciertos || intentos<11){
-             
-             switch(intentos){
-                 case 0: 
-                     System.out.print("Ingrese una letra");
-                     letra =sc.next().charAt(0);
-                if(p1.aleatoria.indexOf(letra)==-1){
+        StringBuffer secretaBd = new StringBuffer(secreta);
+        
+                while(p1.aleatoria.equals(secretaBd.toString())==false && intentos<11){
+                
+                    System.out.print("Ingrese una letra");
+                    letra =sc.next().charAt(0);
+                   
+                    if(Character.isLowerCase(letra))
+                       letra=Character.toUpperCase(letra);
+                   
+                    if(p1.aleatoria.indexOf(letra)==-1){
                     JOptionPane.showMessageDialog(null, "Incorrecto");
                     intentos=intentos+1;
-                    }else if (p1.aleatoria.indexOf(letra)>0){
+                   }
+                    else if (p1.aleatoria.indexOf(letra)>=0){
+                    posicion1= p1.aleatoria.indexOf(letra);
+                    posicion2=p1.aleatoria.lastIndexOf(letra);
+                    
+                    secretaBd.setCharAt(posicion1, letra);
+                    secretaBd.setCharAt(posicion2, letra);
+                    
                     JOptionPane.showMessageDialog(null, "¡Correcto!" );
-                    aciertos=aciertos + 1;}
-                 case 1:
-                     System.out.print("Ingrese una letra");
-                     letra =sc.next().charAt(0);
-                if(p1.aleatoria.indexOf(letra)==-1){
-                    JOptionPane.showMessageDialog(null, "Incorrecto");
-                    intentos=intentos+1;
-                    }else if (p1.aleatoria.indexOf(letra)>0){
-                    JOptionPane.showMessageDialog(null, "¡Correcto!");
-                    aciertos=aciertos + 1;}
-                 case 2:
-                     System.out.print("Ingrese una letra");
-                     letra =sc.next().charAt(0);
-                if(p1.aleatoria.indexOf(letra)==-1){
-                    JOptionPane.showMessageDialog(null, "Incorrecto");
-                    intentos=intentos+1;
-                    }else if (p1.aleatoria.indexOf(letra)>0){
-                    JOptionPane.showMessageDialog(null, "¡Correcto!");
-                    aciertos=aciertos + 1;}
-                 case 3:
-                     System.out.print("Ingrese una letra");
-                     letra =sc.next().charAt(0);
-                if(p1.aleatoria.indexOf(letra)==-1){
-                    JOptionPane.showMessageDialog(null, "Incorrecto");
-                    intentos=intentos+1;
-                    }else if (p1.aleatoria.indexOf(letra)>0){
-                    JOptionPane.showMessageDialog(null, "¡Correcto!");
-                    aciertos=aciertos + 1;}
-                 case 4:
-                     System.out.print("Ingrese una letra");
-                     letra =sc.next().charAt(0);
-                if(p1.aleatoria.indexOf(letra)==-1){
-                    JOptionPane.showMessageDialog(null, "Incorrecto");
-                    intentos=intentos+1;
-                    }else if (p1.aleatoria.indexOf(letra)>0){
-                    JOptionPane.showMessageDialog(null, "¡Correcto!");
-                    aciertos=aciertos + 1;}
-                 case 5:System.out.print("Ingrese una letra");
-                     letra =sc.next().charAt(0);
-                if(p1.aleatoria.indexOf(letra)==-1){
-                    JOptionPane.showMessageDialog(null, "Incorrecto");
-                    intentos=intentos+1;
-                    }else if (p1.aleatoria.indexOf(letra)>0){
-                    JOptionPane.showMessageDialog(null, "¡Correcto!");
-                    aciertos=aciertos + 1;}
-                 case 6:
-                     System.out.print("Ingrese una letra");
-                     letra =sc.next().charAt(0);
-                if(p1.aleatoria.indexOf(letra)==-1){
-                    JOptionPane.showMessageDialog(null, "Incorrecto");
-                    intentos=intentos+1;
-                    }else if (p1.aleatoria.indexOf(letra)>0){
-                    JOptionPane.showMessageDialog(null, "¡Correcto!");
-                    aciertos=aciertos + 1;}
-                 case 7:
-                     System.out.print("Ingrese una letra");
-                     letra =sc.next().charAt(0);
-                if(p1.aleatoria.indexOf(letra)==-1){
-                    JOptionPane.showMessageDialog(null, "Incorrecto");
-                    intentos=intentos+1;
-                    }else if (p1.aleatoria.indexOf(letra)>0){
-                    JOptionPane.showMessageDialog(null, "¡Correcto!");
-                    aciertos=aciertos + 1;}
-                 case 8:
-                     System.out.print("Ingrese una letra");
-                     letra =sc.next().charAt(0);
-                if(p1.aleatoria.indexOf(letra)==-1){
-                    JOptionPane.showMessageDialog(null, "Incorrecto");
-                    intentos=intentos+1;
-                    }else if (p1.aleatoria.indexOf(letra)>0){
-                    JOptionPane.showMessageDialog(null, "¡Correcto!");
-                    aciertos=aciertos + 1;}
-                 case 9:
-                     System.out.print("Ingrese una letra");
-                     letra =sc.next().charAt(0);
-                if(p1.aleatoria.indexOf(letra)==-1){
-                    JOptionPane.showMessageDialog(null, "Incorrecto");
-                    intentos=intentos+1;
-                    }else if (p1.aleatoria.indexOf(letra)>0){
-                    JOptionPane.showMessageDialog(null, "¡Correcto!");
-                    aciertos=aciertos + 1;}
-                 case 10:
-                     System.out.print("Ingrese una letra");
-                     letra =sc.next().charAt(0);
-                if(p1.aleatoria.indexOf(letra)==-1){
-                    JOptionPane.showMessageDialog(null, "Incorrecto");
-                    intentos=intentos+1;
-                    }else if (p1.aleatoria.indexOf(letra)>0){
-                    JOptionPane.showMessageDialog(null, "¡Correcto!");
-                    aciertos=aciertos + 1;}
-             }
-               
+                    JOptionPane.showMessageDialog(null, secretaBd);
+                    
                     }
-       
+                    }
         
         if (intentos>=11){
-                    JOptionPane.showMessageDialog(null, "Perdiste");
+                    JOptionPane.showMessageDialog(null, "Perdiste, la palabra era: " + p1.aleatoria);
                     System.out.print(aleatoria);
-                    System.exit(intentos);
-        }else if(p1.aleatoria.equals(secreta)==true){
+                    System.exit(0);
+        }else if(p1.aleatoria.equals(secretaBd.toString())){
             JOptionPane.showMessageDialog(null, "¡Felicidades ganaste!");
              System.out.print(aleatoria);
-                    System.exit(intentos);
+                    System.exit(0);
         }
         
-        
-        
+       
         }
         }
-    
      
 
